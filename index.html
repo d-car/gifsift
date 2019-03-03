@@ -4,37 +4,31 @@
 <head>
   <meta charset="utf-8">
   <title>TItle</title>
-  <link rel="stylesheet" type="text/css" href="assets/CSS/reset.css"> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/styles.css"> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-<!-- Header -->
-  <div class="jumbotron">
-      <div class="container">
-          <h1>NFL GIF Search</h1>
-      </div>
-  </div>
 
-  <div class="container">
-    <!-- Dynamic Buttons -->
-    <div class="row">
-      <div class="col-lg-12 mx-auto button-area">
-      </div>
-    </div>
-   </div>
+    <ul class="nav">
+        <li class="nav-item">
+            <h3>GIFsift</h3>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://github.com/d-car/gifsift">GitHub</a>
+        </li>
+    </ul>
 
    <div class="container">
         <div class="row">
             <div class="col-lg-12 mx-auto search-form">
-                <form id="search-form">
-                    <label for="search-input" id="s-input">Search Teams</label>
+                <form class="search-form">
+                    <label for="search-input" id="s-input">Search GIFs</label>
                     <input type="text" id="search-input">
                     
                     <!-- Add Buttons -->
-                    <input id="add-gif" type="submit" value="Search GIFs">
+                    <input id="searchButton" type="submit" value="Search GIFs">
                 </form>
             </div>
         </div>
@@ -42,18 +36,30 @@
 
 
   <div class="container">
+      <!-- Button display -->
+    <div class="row">
+        <div class="col-lg-12">
+          <div id="button-area">
+  
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="container">
     <!-- GIF display -->
     <div class="row">
         <div class="col-lg-12">
-          <div id="gif-area"></div>
-          <br><br>
+            <div id="gif-area">
+
+            </div>
         </div>
     </div>
   </div>
 
 <footer>
   <div id="footer" class="container">
-    <h4 id="copyright">&copy; Copyright 2018 Dan Carstensen</h4>
   </div>
 </footer>
 

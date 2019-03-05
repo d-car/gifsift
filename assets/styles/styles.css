@@ -14,6 +14,12 @@
 
 }
 
+img {
+    padding: 2px;
+    height: 200px;
+    width: 300px;
+}
+
 .imgContainer {
     display: flex;
     flex-wrap: wrap;

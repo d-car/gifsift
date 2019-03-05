@@ -3,29 +3,21 @@
     justify-content: center;
 };
 
-.gifDisplay {
-    border: 5px solid blue;
-    margin: auto;
-    width: 75vw;
-    padding: 25px;
+div.container.gifDisplay {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+
+/* .imgContainer {
+    display: flex;
+    width: 25%;
+    border: 5px solid red;
     justify-content: center;
 
-}
+} */
 
 img {
     padding: 2px;
     height: 200px;
     width: 300px;
-}
-
-.imgContainer {
-    display: flex;
-    flex-wrap: wrap;
-    height: 200px;
-    width: 25vw;
-    border: 5px solid red;
-    justify-content: center;
-
 }

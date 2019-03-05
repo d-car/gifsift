@@ -14,33 +14,32 @@ $('#searchBtn').on('click', function () {
         let results = response.data;
 
         for (let i = 0; i < results.length; i++) {
-            const imgContainer = $("<div class='container imgContainer'>");
             const gifImg = $('<img>')
             //assigning attributes to both the still and animated versions of the gif for click event later              
-            gifImg.attr("src", results[i].images.fixed_height_still.url);
-            gifImg.attr("data-still", results[i].images.fixed_height_still.url);
-            gifImg.attr("data-animate", results[i].images.fixed_height.url);
-            gifImg.attr("data-state", "still");
-            gifImg.addClass("gifImg");
-            imgContainer.append(gifImg)
+            gifImg.attr('src', results[i].images.fixed_height_still.url);
+            gifImg.attr('data-still', results[i].images.fixed_height_still.url);
+            gifImg.attr('data-animate', results[i].images.fixed_height.url);
+            gifImg.attr('data-state', 'still');
+            gifImg.addClass('gifImg');
+
 
             //prepends to gif div  
-            $(".gifDisplay").prepend(imgContainer);
+            $('.gifDisplay').prepend(gifImg);
 
         }
     })
 });
 
 //pause/play gifs on click
-$(document).on("click", ".gifImg", function() {
-    var state = $(this).attr("data-state");
+$(document).on('click', '.gifImg', function() {
+    var state = $(this).attr('data-state');
   
-    if (state === "still") {
-        $(this).attr("src", $(this).data("animate"));
-        $(this).attr("data-state", "animate");
+    if (state === 'still') {
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
     } else {
-        $(this).attr("src", $(this).data("still"));
-        $(this).attr("data-state", "still");
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
     }
     
   });

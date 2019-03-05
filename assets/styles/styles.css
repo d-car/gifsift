@@ -2,3 +2,24 @@
     display: flex;
     justify-content: center;
 };
+
+.gifDisplay {
+    border: 5px solid blue;
+    margin: auto;
+    width: 75vw;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 25vw;
+    border: 5px solid red;
+    justify-content: center;
+
+}

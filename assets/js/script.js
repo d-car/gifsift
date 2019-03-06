@@ -1,10 +1,14 @@
+// $(document).ready(function() {
+//     $(".fade").hide(0).delay(500).fadeIn(2000)
+// });
+
 $('#searchBtn').on('click', function () {
     event.preventDefault();
     $('.gifDisplay').empty();
     userSearchQuery = $('#searchInput').val().trim();
     let result = userSearchQuery.replace(/ /g, '+');
     console.log('You Searched: ' + result)
-    const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + result + '&api_key=YtWIFNouKBztP0svyc6zF5A0mJFrGUSl&limit=24';
+    const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + result + '&api_key=YtWIFNouKBztP0svyc6zF5A0mJFrGUSl&limit=48';
 
     $.ajax({
         url: queryURL,
@@ -12,6 +16,7 @@ $('#searchBtn').on('click', function () {
     })
       .then(function(response){
         let results = response.data;
+        console.log(results)
 
         for (let i = 0; i < results.length; i++) {
             const gifImg = $('<img>')

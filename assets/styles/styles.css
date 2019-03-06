@@ -1,23 +1,82 @@
-.searchField {
+.title {
     display: flex;
     justify-content: center;
-};
+    font-family: 'Bungee Shade', cursive;
+}
 
-div.container.gifDisplay {
+.searchField {
     display: flex;
     justify-content: center;
 }
 
-/* .imgContainer {
-    display: flex;
-    width: 25%;
-    border: 5px solid red;
-    justify-content: center;
+#searchInput {
+    border-radius: 4px;
+    width: 15rem;
+}
 
-} */
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+      0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+#searchBtn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; 
+    margin: 2px 0;  
+    border: solid 1px transparent;
+    border-radius: 4px;  
+    padding: 0.5em 1em;  
+    color: #ffffff;
+    background-color: #9555af;
+}
+
+#searchBtn:hover {
+    color: #9555af;
+    border-color: currentColor;
+    background-color: white;
+}
+
+#searchBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+      0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+div.container.gifDisplay {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 80vh;
+}
 
 img {
     padding: 2px;
     height: 200px;
     width: 300px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    background-color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerText {
+    align-self: center;
+}
+
+.fa-github {
+    align-self: flex-end;
+    margin: 10px;
+}
+
+.fa-github:hover {
+    color: #9555af;
 }

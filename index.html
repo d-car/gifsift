@@ -5,6 +5,11 @@
   <meta charset='utf-8'>
   <title>GIFsift</title>
   <link rel='stylesheet' type='text/css' href='assets/styles/styles.css'>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+  <script defer src=
+    "https://use.fontawesome.com/releases/v5.7.2/js/all.js" 
+     integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" 
+     crossorigin="anonymous"></script>
   <script src=
     "https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
@@ -14,19 +19,26 @@
 
 <body>
   <!-- Header -->
-  <div class='container'>
+  <div class='container title fade'>
     <h1>GIFsift</h1>
   </div>
 
-  <div class='container searchField'>
+  <div class='container searchField fade'>
     <form class='gifSearch'>
       <input type='text' placeholder='Search GIFs' id='searchInput'>
       <input type='submit' value='Submit' id='searchBtn'>
     </form>
   </div>
+  <br>
+  <br>
 
-  <div class='container gifDisplay'>
+  <div class='container gifDisplay fade'>
     <h3>Use the search bar to find GIFs!</h3>
+  </div>
+
+  <div class='container footer fade'>
+    <p class='footerText'>Copyright 2019. All Rights Reserved</p>
+    <i class="fab fa-github fa-3x"></i>
   </div>
 
 

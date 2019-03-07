@@ -1,9 +1,18 @@
+const gifArray = [];
+const modal = $('#gifModal');
+const modalContent= $('.modalContent');
+const gifImg = $('<img>')
+
 $(document).ready(function() {
     $(".fade").hide(0).delay(500).fadeIn(2000)
+    modal.hide();
+
 });
+
 
 $('#searchBtn').on('click', function () {
     event.preventDefault();
+    let gifArray = [];
     $('.gifDisplay').empty();
     userSearchQuery = $('#searchInput').val().trim();
     let result = userSearchQuery.replace(/ /g, '+');
@@ -16,35 +25,60 @@ $('#searchBtn').on('click', function () {
     })
       .then(function(response){
         let results = response.data;
-        console.log(results)
+        gifArray.push(results);
+        // console.log('results array', results)
+        // console.log('gif array', gifArray);
 
         for (let i = 0; i < results.length; i++) {
+            gifArray.push(results[i].images.fixed_height.url)
             const gifImg = $('<img>')
+
             //assigning attributes to both the still and animated versions of the gif for click event later              
             gifImg.attr('src', results[i].images.fixed_height_still.url);
             gifImg.attr('data-still', results[i].images.fixed_height_still.url);
             gifImg.attr('data-animate', results[i].images.fixed_height.url);
             gifImg.attr('data-state', 'still');
+            gifImg.attr('id', results[i].id)
             gifImg.addClass('gifImg');
 
-
-            //prepends to gif div  
-            $('.gifDisplay').prepend(gifImg);
+            //appends to gif div  
+            $('.gifDisplay').append(gifImg);
+            
 
         }
+
+        console.log('gif array links', gifArray)
+
+        // gifArray.push(results);
+        // console.log('heres your array', gifArray)
     })
 });
 
 //pause/play gifs on click
 $(document).on('click', '.gifImg', function() {
-    var state = $(this).attr('data-state');
+    const state = $(this).attr('data-state');
   
     if (state === 'still') {
         $(this).attr('src', $(this).data('animate'));
         $(this).attr('data-state', 'animate');
+        
+
+
+
     } else {
         $(this).attr('src', $(this).data('still'));
         $(this).attr('data-state', 'still');
     }
     
-  });
+});
+
+// $(document).on('click', '.gifImg', function() {
+//     modal.show();
+//     console.log(this.indexOf(id))
+// });
+
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//       modal.style.display = "none";
+//     }
+//   }

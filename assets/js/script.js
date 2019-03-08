@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 $('#searchBtn').on('click', function () {
     event.preventDefault();
-    let gifArray = [];
+    // let gifArray = [];
     $('.gifDisplay').empty();
     userSearchQuery = $('#searchInput').val().trim();
     let result = userSearchQuery.replace(/ /g, '+');
@@ -25,9 +25,7 @@ $('#searchBtn').on('click', function () {
     })
       .then(function(response){
         let results = response.data;
-        gifArray.push(results);
-        // console.log('results array', results)
-        // console.log('gif array', gifArray);
+        // gifArray.push(results);
 
         for (let i = 0; i < results.length; i++) {
             gifArray.push(results[i].images.fixed_height.url)
@@ -47,10 +45,8 @@ $('#searchBtn').on('click', function () {
 
         }
 
-        console.log('gif array links', gifArray)
-
         // gifArray.push(results);
-        // console.log('heres your array', gifArray)
+        console.log('heres your array', gifArray)
     })
 });
 

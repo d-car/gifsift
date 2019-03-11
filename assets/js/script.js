@@ -25,11 +25,17 @@ $('#searchBtn').on('click', function () {
     })
       .then(function(response){
         let results = response.data;
-        // gifArray.push(results);
+        gifArray.push(results);
+
+        // for (i=0; i < gifArray; i++) {
+        //     $("div class='gifResults' />").img(gifArray[i].images.fixed_height_still.url).appendTo('.gifDisplay')
+        // }
 
         for (let i = 0; i < results.length; i++) {
-            gifArray.push(results[i].images.fixed_height.url)
+            gifArray.push(results)
+            const gifContainer = $('<div>')
             const gifImg = $('<img>')
+            const gifButton = $('<button>')
 
             //assigning attributes to both the still and animated versions of the gif for click event later              
             gifImg.attr('src', results[i].images.fixed_height_still.url);
@@ -39,8 +45,17 @@ $('#searchBtn').on('click', function () {
             gifImg.attr('id', results[i].id)
             gifImg.addClass('gifImg');
 
+            gifButton.attr('class', 'gifButton')
+            gifButton.attr('name', 'Get GIF!')
+
+            gifContainer.attr('class', 'gifContainer');
+
             //appends to gif div  
             $('.gifDisplay').append(gifImg);
+            $('.gifDisplay').append(gifButton);
+            $('.gifDisplay').append(gifContainer);
+            $('.gifContainer').append(gifImg);
+
             
 
         }
@@ -68,7 +83,7 @@ $(document).on('click', '.gifImg', function() {
     
 });
 
-// $(document).on('click', '.gifImg', function() {
+// $(document).on('click', '.gifImg', function(id) {
 //     modal.show();
 //     console.log(this.indexOf(id))
 // });

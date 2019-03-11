@@ -57,6 +57,10 @@ img {
     width: 300px;
 }
 
+.gifButton {
+    justify-content: center;
+}
+
 .footer {
     display: flex;
     position: fixed;
@@ -74,6 +78,7 @@ img {
 .fa-github {
     align-self: flex-end;
     margin: 10px;
+    color: black;
 }
 
 .fa-github:hover {
@@ -104,11 +109,11 @@ img {
 
 @media screen and (max-width:768px) {
     body img {
+        height: 20vh;
         width: 45vw;
     }
 
     body .title {
         font-size: 2rem;
-        color: red;
     }
 }

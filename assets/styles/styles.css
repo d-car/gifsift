@@ -20,7 +20,7 @@
       0 0 0 1.5px rgba(255, 105, 180, 0.5);
 }
 
-#searchBtn {
+.button {
     display: inline-block;
     text-align: center;
     text-decoration: none; 
@@ -30,9 +30,10 @@
     padding: 0.5em 1em;  
     color: #ffffff;
     background-color: #9555af;
+
 }
 
-#searchBtn:hover {
+.button:hover {
     color: #9555af;
     border-color: currentColor;
     background-color: white;
@@ -45,14 +46,15 @@
 }
 
 .gifDisplay {
+    height: 500vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin: auto auto 50px auto;
 }
 
 img {
-    padding: 2px;
+    padding: 5px;
     height: 200px;
     width: 300px;
 }
@@ -85,28 +87,6 @@ img {
     color: #9555af;
 }
 
-.modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-}
-
 @media screen and (max-width:768px) {
     body img {
         height: 20vh;
@@ -115,5 +95,9 @@ img {
 
     body .title {
         font-size: 2rem;
+    }
+
+    body .gifDisplay {
+        width: 100vw;
     }
 }

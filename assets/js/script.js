@@ -1,20 +1,28 @@
-const modal = $('#gifModal');
+const modal = $('.modal');
 const modalContent= $('.modalContent');
-const gifImg = $('<img>')
 
-$(document).ready(function() {
+$(document).ready(function() {   
     $(".fade").hide(0).delay(500).fadeIn(2000)
     modal.hide();
-
 });
+
+// gif search
 
 $('#searchBtn').on('click', function () {
     event.preventDefault();
+    
+    // page state changes
+
     $('.gifDisplay').empty();
+    $('.gifDisplay').css('display', 'flex');
+    $('#instructions').text('Click GIFs to play!');
+
+    // ajax on giphy api
+
     userSearchQuery = $('#searchInput').val().trim();
     let result = userSearchQuery.replace(/ /g, '+');
-    console.log('You Searched: ' + result)
-    const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + result + '&api_key=YtWIFNouKBztP0svyc6zF5A0mJFrGUSl&limit=72';
+    console.log('You Searched: ' + result);
+    const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + result + '&api_key=YtWIFNouKBztP0svyc6zF5A0mJFrGUSl&limit=70';
     
     // Store recent searches in localStorage
 
@@ -57,12 +65,9 @@ $('#searchBtn').on('click', function () {
 
             gifBtn.attr('data-id', value.id);
             gifBtn.addClass('button gifBtn');
-            gifBtn.text('getGif!')
+            gifBtn.text('getGif!');
 
-            // console.log('id of gif: ' + value.id + ' id of btn: ' + gifBtn.data('id'))
-
-
-
+            // append gif and button to card of same id
 
             if (gifCard.data('data-id')==gifImg.data('data-id') && gifCard.data('data-id')==gifBtn.data('data-id')) {
                 $(gifCard).append(gifImg)
@@ -70,6 +75,8 @@ $('#searchBtn').on('click', function () {
             }
         })    
       })
+
+
 });
 
 // pause/play gifs on click
@@ -88,10 +95,18 @@ $(document).on('click', '.gifImg', function() {
     
 });
 
-$('button.gifBtn').on('click', function () {
-    console.log('you clicked it');
-    // if ($('#gifModal').css('display')=='none') {
-        $('#gifModal').attr('style', 'display', 'block')
-  
-    // }
+// open and close modal
+
+$(document).on('click', '.gifBtn', function() {
+    console.log('you clicked it')
+    
+    modal.show();
+
+});
+
+$(document).on('click', '.close', function() {
+    console.log('you closed it')
+    
+    modal.hide();
+
 });

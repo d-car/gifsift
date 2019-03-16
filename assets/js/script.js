@@ -25,33 +25,49 @@ $('#searchBtn').on('click', function () {
         method: 'GET'
     })
       .then(function(response){
-        let results = response.data;
+        const results = response.data;
 
         // console.log('results', results)
 
-        $.each(results, function(index, value) {         
-
-        
+        $.each(results, function(index, value) {
+                    
             // create elements for each gif/button and apply attributes
 
-            gifCard = $('<div />')
-            gifCard.addClass('gifCard')
+            const gifCard = $('<div />');
+            gifCard.addClass('gifCard');
+            // gifCard.attr('id', value.id)
+            gifCard.attr('data-id', value.id)
+            $('.gifDisplay').append(gifCard);
 
 
-            let imgSrc = value.images.fixed_height_still.url;
-            let gifImg = $('<img>');
+            const gifImg = $('<img>');
+            const imgSrc = value.images.fixed_height_still.url  
+            const gifBtn = $('<button>');
+
+            // gif attributes
+
+            gifImg.attr('data-id', value.id);
             gifImg.attr('src', imgSrc);
             gifImg.addClass('gifImg');
             gifImg.attr('data-still', value.images.fixed_height_still.url);
             gifImg.attr('data-animate', value.images.fixed_height.url);
             gifImg.attr('data-state', 'still');
-            const gifURL = $('<button>')
-            gifURL.addClass('button');
+
+            // button attributes
+
+            gifBtn.attr('data-id', value.id);
+            gifBtn.addClass('button gifBtn');
+            gifBtn.text('getGif!')
+
+            // console.log('id of gif: ' + value.id + ' id of btn: ' + gifBtn.data('id'))
 
 
-            $('.gifCard').append(gifImg)
-            $('.gifCard').append(gifURL)
-            $('.gifDisplay').append(gifCard);
+
+
+            if (gifCard.data('data-id')==gifImg.data('data-id') && gifCard.data('data-id')==gifBtn.data('data-id')) {
+                $(gifCard).append(gifImg)
+                $(gifCard).append(gifBtn)
+            }
         })    
       })
 });
@@ -70,4 +86,12 @@ $(document).on('click', '.gifImg', function() {
         $(this).attr('data-state', 'still');
     }
     
+});
+
+$('button.gifBtn').on('click', function () {
+    console.log('you clicked it');
+    // if ($('#gifModal').css('display')=='none') {
+        $('#gifModal').attr('style', 'display', 'block')
+  
+    // }
 });

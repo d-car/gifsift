@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     font-family: 'Bungee Shade', cursive;
+    font-size:5vh;
 }
 
 .searchField {
@@ -50,7 +51,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: auto auto 50px auto;
+
+}
+
+.gifCard {
+    height: 300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
 }
 
 img {
@@ -87,10 +97,49 @@ img {
     color: #9555af;
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+  /* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+  
+  /* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 @media screen and (max-width:768px) {
+
     body img {
-        height: 20vh;
-        width: 45vw;
+        height: 80vh;
+        width: 90vw;
     }
 
     body .title {
@@ -99,5 +148,16 @@ img {
 
     body .gifDisplay {
         width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body .gifCard {
+        width: 95vw;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
     }
 }

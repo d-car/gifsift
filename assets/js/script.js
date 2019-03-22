@@ -1,5 +1,6 @@
 const modal = $('.modal');
 const modalContent= $('.modalContent');
+var results;
 
 $(document).ready(function() {   
     $(".fade").hide(0).delay(500).fadeIn(2000)
@@ -33,9 +34,9 @@ $('#searchBtn').on('click', function () {
         method: 'GET'
     })
       .then(function(response){
-        const results = response.data;
+        results = response.data;
 
-        // console.log('results', results)
+        console.log('results', results)
 
         $.each(results, function(index, value) {
                     
@@ -99,9 +100,27 @@ $(document).on('click', '.gifImg', function() {
 
 $(document).on('click', '.gifBtn', function() {
     console.log('you clicked it')
+
+    console.dir(this);
+
+    let buttonId = this.dataset.id
+
+    console.log('you fucker', this.dataset.id);
+    // console.log('youre looping thru this', results)
     
+
+    $.each(results, function(index, value) {
+
+        const modalGif = value.url;
+
+        if (buttonId==value.id) {
+            $('.modalImg').attr('src', modalGif)
+            console.log('button and an index match')
+        }    
+
     modal.show();
 
+    });
 });
 
 $(document).on('click', '.close', function() {

@@ -100,10 +100,16 @@ $(document).on('click', '.gifImg', function () {
 // open and close modal
 
 $(document).on('click', '.gifBtn', function () {
+    $('.modal-content').empty();
     console.log('you clicked it')
 
     const modalImg = $('<img>');
     modalImg.addClass('modalImg');
+    const modalTextArea = $('<textarea>');
+    modalTextArea.addClass('modalLink');
+    modalTextArea.attr('readonly', 'readonly')
+    modalTextArea.attr('rows', 1);
+    modalTextArea.attr('cols', 100);
 
     console.dir(this);
 
@@ -112,9 +118,11 @@ $(document).on('click', '.gifBtn', function () {
     $.each(results, function (index, value) {
 
         if (buttonId == value.id) {
-            modalURL = value.url
+            modalURL = value.images.original.url
             modalImg.attr('src', modalURL);
             $('.modal-content').append(modalImg);
+            modalTextArea.append(modalURL);
+            $('.modal-content').append(modalTextArea);
 
             console.log('button and an index match');
         }
@@ -125,7 +133,10 @@ $(document).on('click', '.gifBtn', function () {
 });
 
 $(document).on('click', '.close', function () {
-    console.log('you closed it')
+    // const modalOpen = $('.modal').attr('display');
+
+    // if (modalOpen != none )
+    // console.log('you closed it')
 
     modal.hide();
 

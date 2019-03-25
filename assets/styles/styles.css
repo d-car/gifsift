@@ -70,7 +70,7 @@ h1:hover {
     width: 350px;
 }
 
-img {
+.gifImg {
     /* padding: 5px; */
     height: 200px;
     width: 300px;
@@ -120,8 +120,13 @@ img {
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fefefe;
     margin: auto;
+    margin-bottom: 20vh;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;

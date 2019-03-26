@@ -98,11 +98,13 @@ $(document).on('click', '.gifImg', function () {
 
 });
 
-// open and close modal
+// open modal
 
 $(document).on('click', '.gifBtn', function () {
     $('.modal-content').empty();
     console.log('you clicked it')
+
+    // modal image attributes
 
     const modalImg = $('<img>');
     modalImg.addClass('modalImg');
@@ -112,18 +114,23 @@ $(document).on('click', '.gifBtn', function () {
     modalTextArea.attr('rows', 1);
     modalTextArea.attr('cols', 100);
 
+    // mobile view
+
     if (mobileScreen.matches) {
         modalTextArea.attr('rows', 2);
         modalTextArea.attr('cols', 50);
     }
 
-    console.dir(this);
+    // console.dir(this);
 
     let buttonId = this.dataset.id;
 
     $.each(results, function (index, value) {
 
         if (buttonId == value.id) {
+
+            // mobile view
+
             if (mobileScreen.matches) {
                 modalURL = value.images.fixed_width.url
             } else {
@@ -144,12 +151,11 @@ $(document).on('click', '.gifBtn', function () {
     });
 });
 
-$(document).on('click', '.close', function () {
-    // const modalOpen = $('.modal').attr('display');
+// close modal
 
-    // if (modalOpen != none )
-    // console.log('you closed it')
+$(document).on('click', '.close', function () {
 
     modal.hide();
 
 });
+  

@@ -148,11 +148,6 @@ h1:hover {
 
 @media screen and (max-width:600px) {
 
-    body img {
-        height: 80vh;
-        width: 90vw;
-    }
-
     body .title {
         font-size: 2rem;
     }
@@ -166,8 +161,6 @@ h1:hover {
         justify-content: center;
         align-items: center;
         overflow:auto;
-
-
     }
 
     body .gifCard {
@@ -179,8 +172,8 @@ h1:hover {
 
     body .gifBtn {
         width: 50vw;
-        height: 15vh;
-        margin: 5px;
+        height: 7.5vh;
+        margin-top: 10px;
     }
 
     body .footer {
@@ -191,5 +184,9 @@ h1:hover {
         left: 0;
         bottom: 0;
         width: 100%;
+    }
+
+    body .modalLink {
+        margin-top: 10px;
     }
 }

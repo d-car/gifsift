@@ -1,6 +1,7 @@
 const modal = $('.modal');
 const modalContent = $('.modalContent');
 var results;
+const mobileScreen = window.matchMedia("(max-width: 768px)")
 
 $(document).ready(function () {
     $(".fade").hide(0).delay(500).fadeIn(2000)
@@ -111,6 +112,11 @@ $(document).on('click', '.gifBtn', function () {
     modalTextArea.attr('rows', 1);
     modalTextArea.attr('cols', 100);
 
+    if (mobileScreen.matches) {
+        modalTextArea.attr('rows', 2);
+        modalTextArea.attr('cols', 50);
+    }
+
     console.dir(this);
 
     let buttonId = this.dataset.id;
@@ -118,13 +124,19 @@ $(document).on('click', '.gifBtn', function () {
     $.each(results, function (index, value) {
 
         if (buttonId == value.id) {
-            modalURL = value.images.original.url
+            if (mobileScreen.matches) {
+                modalURL = value.images.fixed_width.url
+            } else {
+                modalURL = value.images.original.url
+            }
+
             modalImg.attr('src', modalURL);
             $('.modal-content').append(modalImg);
             modalTextArea.append(modalURL);
             $('.modal-content').append(modalTextArea);
 
-            console.log('button and an index match');
+            // console.log('button and an index match');
+            console.log(modalURL);
         }
 
         modal.show();

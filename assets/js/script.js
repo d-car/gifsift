@@ -23,7 +23,7 @@ $('#searchBtn').on('click', function () {
 
     userSearchQuery = $('#searchInput').val().trim();
     let result = userSearchQuery.replace(/ /g, '+');
-    console.log('You Searched: ' + result);
+    // console.log('You Searched: ' + result);
     const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + result + '&api_key=YtWIFNouKBztP0svyc6zF5A0mJFrGUSl&limit=70';
 
     // Store recent searches in localStorage
@@ -32,13 +32,12 @@ $('#searchBtn').on('click', function () {
 
     $.ajax({
         url: queryURL,
-        // dataType: 'jsonP',
         method: 'GET',
     })
         .then(function (response) {
             results = response.data;
 
-            console.log('results', results)
+            // console.log('results', results)
 
             $.each(results, function (index, value) {
 
@@ -46,7 +45,6 @@ $('#searchBtn').on('click', function () {
 
                 const gifCard = $('<div />');
                 gifCard.addClass('gifCard');
-                // gifCard.attr('id', value.id)
                 gifCard.attr('data-id', value.id)
                 $('.gifDisplay').append(gifCard);
 
@@ -156,7 +154,7 @@ $(document).on('click', '.gifBtn', function () {
             $('.modal-content').append(modalTextArea);
 
             // console.log('button and an index match');
-            console.log(modalURL);
+            // console.log(modalURL);
         }
 
         modal.show();

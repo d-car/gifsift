@@ -8,13 +8,12 @@ Version 0.5
 
 TODO for v1.0
 
-- Populate Modal content
 - Work on mobile responsiveness
 
 Future Versions
 
 - Ability to save favorites
-    - Create Node.js/Express server to store data in database
     - Set up Models/Schemas for MongoDB database
+    - Create Node.js/Express server to store data in database
     - Passport.js login
 

@@ -107,7 +107,6 @@ h1:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -115,6 +114,11 @@ h1:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
+}
+
+.modalLink {
+    width: 65vw;
+    margin-top: 10px;
 }
 
 .modal.visible {
@@ -136,9 +140,10 @@ h1:hover {
   
 .close {
     color: #aaaaaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
+    position: relative;
+    left: 35vw;
 }
   
 .close:hover,

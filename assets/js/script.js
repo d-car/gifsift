@@ -5,7 +5,7 @@ const mobileScreen = window.matchMedia("(max-width: 768px)")
 
 $(document).ready(function () {
     $(".fade").hide(0).delay(500).fadeIn(2000)
-    modal.hide();
+
 });
 
 // gif search
@@ -57,18 +57,21 @@ $('#searchBtn').on('click', function () {
 
                 // gif attributes
 
-                gifImg.attr('data-id', value.id);
-                gifImg.attr('src', imgSrc);
                 gifImg.addClass('gifImg');
-                gifImg.attr('data-still', value.images.fixed_height_still.url);
-                gifImg.attr('data-animate', value.images.fixed_height.url);
-                gifImg.attr('data-state', 'still');
+                gifImg.attr({
+                    'data-id': value.id,
+                    'src': imgSrc,
+                    'data-still': value.images.fixed_height_still.url,
+                    'data-animate': value.images.fixed_height.url,
+                    'data-state': 'still'
+                });
 
                 // button attributes
 
                 gifBtn.attr('data-id', value.id);
                 gifBtn.addClass('button gifBtn');
                 gifBtn.text('getGif!');
+
 
                 // append gif and button to card of same id
 
@@ -101,8 +104,12 @@ $(document).on('click', '.gifImg', function () {
 // open modal
 
 $(document).on('click', '.gifBtn', function () {
+    const close = $('<span>');
+    close.addClass('close');
+    close.html('&times;');
     $('.modal-content').empty();
-    console.log('you clicked it')
+    $('.modal-content').append(close);
+    // console.log('you clicked it')
 
     // modal image attributes
 
@@ -110,15 +117,21 @@ $(document).on('click', '.gifBtn', function () {
     modalImg.addClass('modalImg');
     const modalTextArea = $('<textarea>');
     modalTextArea.addClass('modalLink');
-    modalTextArea.attr('readonly', 'readonly')
-    modalTextArea.attr('rows', 1);
-    modalTextArea.attr('cols', 100);
+    modalTextArea.attr({
+        readonly: 'readonly',
+        rows: 1,
+        cols: 100
+    });
+
+
 
     // mobile view
 
     if (mobileScreen.matches) {
-        modalTextArea.attr('rows', 2);
-        modalTextArea.attr('cols', 50);
+        modalTextArea.attr({
+            rows: 2,
+            cols: 50
+        })
     }
 
     // console.dir(this);
@@ -158,4 +171,3 @@ $(document).on('click', '.close', function () {
     modal.hide();
 
 });
-  
